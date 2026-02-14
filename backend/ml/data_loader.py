@@ -1,11 +1,11 @@
 from influxdb_client import InfluxDBClient
 import pandas as pd
 
-from config.config import (
+from app.core.config import (
     INFLUX_URL,
     INFLUX_TOKEN,
     INFLUX_ORG,
-    INFLUX_BUCKET
+    INFLUX_BUCKET,
 )
 
 
@@ -62,3 +62,4 @@ if __name__ == "__main__":
     print("✅ Data loaded from InfluxDB")
     print(df.head())
     print("\nShape:", df.shape)
+
