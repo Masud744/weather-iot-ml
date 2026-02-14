@@ -3,7 +3,7 @@ from fastapi import APIRouter, HTTPException
 from app.services.influx_service import get_latest_weather
 from ml.predict import predict_next_30_min
 
-router = APIRouter(prefix="/api/weather", tags=["Weather"])
+router = APIRouter(tags=["Weather"])
 
 
 @router.get("/latest")
