@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import joblib
 from datetime import timedelta
@@ -5,12 +6,30 @@ from datetime import timedelta
 from ml.preprocess import preprocess_weather_data
 
 
-# Load trained models (once)
+# Model paths
 TEMP_MODEL_PATH = "backend/ml/temp_model.pkl"
 HUM_MODEL_PATH = "backend/ml/hum_model.pkl"
 
-temp_model = joblib.load(TEMP_MODEL_PATH)
-hum_model = joblib.load(HUM_MODEL_PATH)
+# Lazy-loaded models
+temp_model = None
+hum_model = None
+
+
+def load_models():
+    """
+    Load ML models only when needed (safe for production)
+    """
+    global temp_model, hum_model
+
+    if temp_model is None:
+        if not os.path.exists(TEMP_MODEL_PATH):
+            raise RuntimeError("Temperature model not found. Train model first.")
+        temp_model = joblib.load(TEMP_MODEL_PATH)
+
+    if hum_model is None:
+        if not os.path.exists(HUM_MODEL_PATH):
+            raise RuntimeError("Humidity model not found. Train model first.")
+        hum_model = joblib.load(HUM_MODEL_PATH)
 
 
 def predict_next_30_min():
@@ -18,6 +37,9 @@ def predict_next_30_min():
     Predict temperature & humidity for next 30 minutes
     using latest 60 minutes of data
     """
+
+    # 🔐 Load models safely
+    load_models()
 
     # Load clean data
     df = preprocess_weather_data(days=7)
@@ -50,4 +72,3 @@ if __name__ == "__main__":
     pred = predict_next_30_min()
     print("🔮 Prediction result")
     print(pred)
-
