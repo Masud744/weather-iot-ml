@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 
-from backend.ml.preprocess import preprocess_weather_data
+from ml.preprocess import preprocess_weather_data
 
 
 def create_windows(
@@ -53,3 +53,4 @@ if __name__ == "__main__":
     print("\nSample target:")
     print("Temperature:", y_temp[0])
     print("Humidity:", y_hum[0])
+
