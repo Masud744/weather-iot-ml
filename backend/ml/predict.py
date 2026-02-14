@@ -2,7 +2,7 @@ import numpy as np
 import joblib
 from datetime import timedelta
 
-from backend.ml.preprocess import preprocess_weather_data
+from ml.preprocess import preprocess_weather_data
 
 
 # Load trained models (once)
@@ -50,3 +50,4 @@ if __name__ == "__main__":
     pred = predict_next_30_min()
     print("🔮 Prediction result")
     print(pred)
+
