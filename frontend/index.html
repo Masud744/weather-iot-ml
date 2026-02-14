@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Weather Dashboard</title>
+
+  <!-- CSS LINK (THIS WAS MISSING) -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Chart.js CDN -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+
+  <h1>🌦 Live Weather Dashboard</h1>
+
+  <div class="dashboard">
+
+    <div class="card">
+      <h3>⏱ Time</h3>
+      <p id="time">--</p>
+    </div>
+
+    <div class="card">
+      <h3>🌡 Temperature</h3>
+      <p><span id="temperature">--</span> °C</p>
+    </div>
+
+    <div class="card">
+      <h3>💧 Humidity</h3>
+      <p><span id="humidity">--</span> %</p>
+    </div>
+
+    <div class="card">
+      <h3>📈 Pressure</h3>
+      <p><span id="pressure">--</span> hPa</p>
+    </div>
+
+    <div class="card">
+      <h3>🌬 Wind Speed</h3>
+      <p><span id="wind_speed">--</span> m/s</p>
+    </div>
+
+    <div class="card">
+      <h3>🧭 Wind Direction</h3>
+      <p><span id="wind_direction">--</span> °</p>
+    </div>
+
+  </div>
+
+  <div class="chart-container">
+    <h2>📊 Temperature Over Time</h2>
+    <canvas id="tempChart"></canvas>
+  </div>
+
+  <!-- Prediction Section -->
+<div class="prediction-container">
+  <h2>🔮 AI Weather Prediction (Upcoming)</h2>
+
+  <div class="prediction-cards">
+
+    <div class="prediction-card">
+      <h4>🌡 Predicted Temperature</h4>
+      <p class="prediction-value">-- °C</p>
+      <small>Next 30 minutes • Model not active</small>
+    </div>
+
+    <div class="prediction-card">
+      <h4>💧 Predicted Humidity</h4>
+      <p class="prediction-value">-- %</p>
+      <small>Next 30 minutes • Coming soon</small>
+    </div>
+
+  </div>
+</div>
+
+
+  <p class="status" id="status">Waiting for data...</p>
+
+  <!-- JS LINK -->
+  <script src="app.js"></script>
+
+</body>
+</html>

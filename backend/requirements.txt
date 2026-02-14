@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+influxdb-client
+pandas
+numpy
+scikit-learn
+joblib
+python-dateutil
