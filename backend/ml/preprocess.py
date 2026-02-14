@@ -1,5 +1,5 @@
 import pandas as pd
-from backend.ml.data_loader import load_weather_data
+from ml.data_loader import load_weather_data
 
 
 def preprocess_weather_data(
@@ -39,3 +39,4 @@ if __name__ == "__main__":
     print("✅ Clean ML-ready data")
     print(clean_df.head())
     print("\nShape:", clean_df.shape)
+
