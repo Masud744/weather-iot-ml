@@ -1,5 +1,5 @@
 from influxdb_client import InfluxDBClient
-from backend.app.core.config import (
+from app.core.config import (
     INFLUX_URL,
     INFLUX_TOKEN,
     INFLUX_ORG,
@@ -40,3 +40,4 @@ def get_latest_weather():
     "wind_speed": record.values.get("wind_speed"),
     "wind_direction": record.values.get("wind_direction"),
    }
+
